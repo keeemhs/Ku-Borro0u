@@ -32,7 +32,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # DEBUG = True
 DEBUG = True
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -115,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/Seoul'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -128,9 +128,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_ROOT = (
-   os.path.join(BASE_DIR, 'static'),
-)
+# STATICFILES_ROOT = (
+#    os.path.join(BASE_DIR, 'static'),
+# )
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
