@@ -1,0 +1,79 @@
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+<head> 
+  <title>All Table</title> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script> 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script> 
+</head> 
+
+<body> 
+<div class="container"> 
+    <h2>All Table</h2> 
+    <p>모든 테이블의 정보를 담았습니다.</p>             
+    <table class="table   table-dark" style = "width:27%; border:1px; float:left;"> 
+    <thead> 
+      <tr> 
+        <th>근무자이름</th> 
+        <th>층수</th> 
+        <th>건물코드</th>
+      </tr> 
+    </thead> 
+    <tbody>
+        {% for employee in employees %}
+          <tr>
+            <td>{{employee.empname}}</td>
+            <td>{{employee.floor}}</td>
+            <td>{{employee.uniname}}</td>
+          </tr>
+        {%endfor%}
+    </tbody>
+  </table> 
+  <div class="container">
+    <table class="table   table-dark" style = "width:25%; border:1px; float:left; margin-left:5%"> 
+    <thead> 
+      <tr> 
+        <th>건물코드</th> 
+        <th>건물이름</th> 
+      </tr> 
+    </thead> 
+    <tbody>
+        {% for building in buildings %}
+          <tr>
+            <td>{{building.code}}</td>
+            <td>{{building.name}}</td>
+          </tr>
+        {%endfor%}
+    </tbody>
+  </table> 
+  <div class="container">
+    <table class="table   table-dark" style = "width:39%; border:1px; float:right;"> 
+      <thead> 
+        <tr> 
+          <th>이름</th> 
+          <th>학번</th> 
+          <th>체온</th>
+          <th>건물</th>
+          <th>층수</th>
+        </tr> 
+      </thead> 
+      <tbody>
+          {% for visitor in visitors %}
+            <tr>
+              <td>{{visitor.visname}}</td>
+              <td>{{visitor.viscode}}</td>
+              <td>{{visitor.temp}}</td>
+              <td>{{visitor.uniname}}</td>
+              <td>{{visitor.visfloor}}</td>
+            </tr>
+          {%endfor%}
+      </tbody>
+    </table>
+</div> 
+</body> 
+</html>
