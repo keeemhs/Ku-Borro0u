@@ -1,2 +1,2 @@
-web: gunicorn porj.wsgi --log-file -
+web: gunicorn proj.wsgi --log-file -
 clock: python commit-bell.py
