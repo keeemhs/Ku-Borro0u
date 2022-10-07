@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include './all.html' %}
+        <title>borr0u - Regist</title>
+    </head>
+    <body id="page-top">
+        {% include './navigation.html' %}
+        <!-- Login Section -->
+        <body>
+            <header class="regist">
+                <h2>상품등록</h2>
+                <ul>
+                    <form method="POST" action="{%url 'regist'%}">
+                        {% csrf_token %}
+                        <li>
+                            <input type="tet" id="categorie"/>
+                            <select name="categorie">
+                                <option value="none">카테고리</option>
+                                <option value="close">의류</option>
+                                <option value="kitchen">주방</option>
+                                <option value="homeappliance">가전</option>
+                                <option value="electro">전자기기</option>
+                                <option value="book">책</option>
+                                <option value="etc">기타</option>
+                            </select>
+                        </li>
+                        <li>
+                            <input required id="title" type="text" placeholder="타이틀" name="title"/>
+                        </li>
+                        <li>
+                            <input required id="notice" type="text" placeholder="유의사항" name="notice"/>
+                        </li>
+                        <!-- <li>
+                            <input required id="id" type="text" placeholder="아이디" name="id"/>
+                        </li> -->
+                        
+                        <li>
+                            <input required id="price" type="text" placeholder="가격" name="price"/>
+                        </li>
+                        <li>
+                            <input required id="regist_date" type="date" placeholder="등록날짜" name="regist_date"/>
+                        </li>
+                        <li>
+                            <input required id="exp_date" type="date" placeholder="만료날짜" name="exp_date"/>
+                        </li>
+                        <!-- <li>
+                            <input required id="regist_code" type="text" placeholder="등록코드" minlength="1" maxlength="9" name="regist_code"/>
+                        </li> -->
+                        <li>
+                            <input type="submit" class="btn btn-primary" value="등록하기" />
+                        </li>
+                    </form>
+                </ul>
+            </header>
+        </body>
+</html>

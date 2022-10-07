@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include './all.html' %}
+        <title>borr0u - Find ID PASSWD</title>
+    </head>
+    <body id="page-top">
+        {% include './navigation.html' %}
+        <!-- Login Section -->
+        <body>
+            <header class="sign-in">
+                <h2>아이디/비밀번호 찾기</h2>
+                <ul>
+                    <form id="sign-in">
+                        <h>아이디 찾기</h>
+                        <li>
+                            <input required id="undergrad" type="text" placeholder="학 번" minlength="9" maxlength="9" name="undergrad"/>
+                        </li>
+                        <li>
+                            <input required id="name" type="text" placeholder="이 름" name="name"/>
+                        </li>
+                        <li>
+                            <input type="button" value="찾기" />
+                        </li>
+
+                        <h>비밀번호 찾기</h>
+                        <li>
+                            <input required id="email" type="text" placeholder="이메일" name="email"/>
+                        </li>
+                        <li>
+                            <input required id="undergrad" type="text" placeholder="학 번" minlength="9" maxlength="9" name="undergrad"/>
+                        </li>
+                        <li>
+                            <input type="button" value="재설정" />
+                        </li>
+                    </form>
+                </ul>
+            </header>
+        </body>
+    </body>
+</html>

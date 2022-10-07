@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include './all.html' %}
+        <title>borr0u - Signin</title>
+    </head>
+    <body id="page-top">
+        {% include './navigation.html' %}
+        <!-- Login Section -->
+        <body>
+            <header class="sign-in">
+                <h2>회원가입</h2>
+                <ul>
+                    <!-- <form id="sign-in"> -->
+                    <form method="POST" action="{%url 'sign_up'%}">
+                    {% csrf_token %}
+                        <li>
+                            <input required id="email" type="text" placeholder="학교이메일 인증" name="email"/>
+                            <input type="button" value="인증"/>
+                        </li>
+                        <li>
+                            <input required id="major" type="text" placeholder="학 과" name="major"/>
+                        </li>
+                        <!-- <li>
+                            <input required id="id" type="text" placeholder="아이디" name="id"/>
+                        </li> -->
+                        <li>
+                            <input required id="username" type="text" placeholder="유저이름" name="username"/>
+                        </li>
+                        <li>
+                            <input required id="undergrad" type="text" placeholder="학 번" minlength="9" maxlength="9" name="undergrad"/>
+                        </li>
+                        <li>
+                            <input required id="name" type="text" placeholder="이 름" name="name"/>
+                        </li>
+                        <!-- <li>
+                            <input required id="nickname" type="text" placeholder="닉네임" name="nickname"/>
+                        </li> -->
+                        <li>
+                            <input required id="phone" type="text" placeholder="연락처" name="phone"/>
+                        </li>
+                        <li>
+                            <input required id="password" type="password" placeholder="비밀번호" minlength="1" maxlength="300" name="password"/>
+                            <div id="passwordError" class="error"></div>
+                        </li>
+                        <li>
+                            <input required id="passwordcheck" type="password" placeholder="비밀번호 확인" minlength="1" maxlength="300" name="passwordcheck"/>
+                            <div id="passwordCheckError" class="error"></div>
+                        </li>
+                        <li>
+                            <input type="submit" class="btn btn-primary" value="회원가입" />
+                        </li>
+                        
+                    </form>
+                </ul>
+            </header>
+        </body>
+</html>

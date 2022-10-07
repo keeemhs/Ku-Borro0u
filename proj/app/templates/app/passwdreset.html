@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include './all.html' %}
+        <title>borr0u - PASSWD reset</title>
+    </head>
+    <body id="page-top">
+        {% include './navigation.html' %}
+        <!-- Login Section -->
+        <body>
+            <header class="sign-in">
+                <h2>아이디/비밀번호 찾기</h2>
+                <ul>
+                    <form id="sign-in">
+                        <h2>비밀번호 재설정</h2>
+                        <li>
+                            <h>비밀번호 재입력</h>
+                            <input required id="passwd" type="password" placeholder="비밀번호 재입력" minlength="9" maxlength="12" name="passwd"/>
+                        </li>
+                        <li>
+                            <h>비밀번호 재입력 확인</h>
+                            <input required id="passwdcheck" type="password" placeholder="비밀번호 재입력 확인" minlength="9" maxlength="12" name="passwdcheck"/>
+                        </li>
+                        <li>
+                            <input type="button" value="변경하기" />
+                        </li>
+                    </form>
+                </ul>
+            </header>
+        </body>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include './all.html' %}
+        <title>borr0u - mypage</title>
+    </head>
+    <body id="page-top">
+        {% include './navigation.html' %}
+        <body>
+            <header class="regist">
+                <h2>마이페이지</h2>
+                <ul>
+                    <form id="mypage">
+                        <div class="button">
+                            <!-- <input type="button" onclick="location.href={% url 'borrow' %}" value="내 물건 관리" /> -->
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'manage' %}">내 물건 관리</a></li>
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'wish' %}">찜</a></li>
+                            <!-- <input type="button" onclick="location.href='./wish.html'" value="찜" /> -->
+                        </div>
+                        <li>
+                            <h>학번</h>
+                            <div style="border: 0.5px solid black; padding: 10px"></div>
+                        </li>
+                        <li>
+                            <h>이메일</h>
+                            <div style="border: 0.5px solid black; padding: 10px"></div>
+                        </li> 
+                        <!--
+                            <li><a href="">비밀번호 변경</a></li>
+                        <div style="display: flex;">
+                            <h>푸쉬알림</h>
+                            <div id="container">
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="chkTog4">
+                                    <label for="chkTog4">
+                                        <span class="toggle-track"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        -->
+                        
+                        <li><a href="../app/">이용제한내역</a></li>    
+                        <li><a href="{% url 'login' %}">로그아웃</a></li>
+
+                    </form>
+                </ul>
+            </header>
+        </body>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include './all.html' %}
+        <title>borr0u - Signin</title>
+    </head>
+    <body id="page-top">
+        {% include './navigation.html' %}
+        <!-- Login Section -->
+        <body>
+            <header class="sign-in">
+                <h2>회원가입</h2>
+                <ul>
+                    <form id="sign-in">
+                        <li>
+                            <input required id="email" type="text" placeholder="학교이메일 인증" name="email"/>
+                            <input type="button" value="인증"/>
+                        </li>
+                        <li>
+                            <input required id="major" type="text" placeholder="학 과" name="major"/>
+                        </li>
+                        <li>
+                            <input required id="undergrad" type="text" placeholder="학 번" minlength="9" maxlength="9" name="undergrad"/>
+                        </li>
+                        <li>
+                            <input required id="name" type="text" placeholder="이 름" name="name"/>
+                        </li>
+                        <li>
+                            <input required id="nickname" type="text" placeholder="닉네임" name="nickname"/>
+                        </li>
+                        <li>
+                            <input required id="password" type="password" placeholder="비밀번호" minlength="8" maxlength="12" name="userpw"/>
+                            <div id="passwordError" class="error"></div>
+                        </li>
+                        <li>
+                            <input required id="passwordcheck" type="password" placeholder="비밀번호 확인" minlength="8" maxlength="12" name="userpwckeck"/>
+                            <div id="passwordCheckError" class="error"></div>
+                        </li>
+                        <li>
+                            <input type="submit" value="회원가입" />
+                        </li>
+                    </form>
+                </ul>
+            </header>
+        </body>
+    </body>
+</html>

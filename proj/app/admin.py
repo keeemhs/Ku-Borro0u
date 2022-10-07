@@ -19,12 +19,21 @@ class ArticleAdmin(admin.ModelAdmin):
     search_fields = ['empname', 'floor', 'uniname']
 admin.site.register(Article, ArticleAdmin)
 
+# class UserAdmin(admin.ModelAdmin):
+#     list_display = ['email', 'password', 'phone', 'regis_date', 'borrow_code', 'regist_code'] # 커스터마이징 코
+#     list_filter = ['email', 'password', 'phone', 'regis_date', 'borrow_code', 'regist_code']
+#     list_per_page = 7
+#     search_fields = ['email', 'password', 'phone', 'regis_date', 'borrow_code', 'regist_code']
+# admin.site.register(User, UserAdmin)
+
 class UserAdmin(admin.ModelAdmin):
-    list_display = ['email', 'password', 'phone', 'iden_code', 'regis_date', 'borrow_code', 'regist_code'] # 커스터마이징 코
-    list_filter = ['email', 'password', 'phone', 'iden_code', 'regis_date', 'borrow_code', 'regist_code']
+    list_display = ['email', 'password', 'phone', 'username'] # 커스터마이징 코
+    list_filter = ['email', 'password', 'phone', 'username']
     list_per_page = 7
-    search_fields = ['email', 'password', 'phone', 'iden_code', 'regis_date', 'borrow_code', 'regist_code']
-admin.site.register(User, UserAdmin)
+    search_fields = ['email', 'password', 'phone', 'username']
+admin.site.register(AuthUser, UserAdmin)
+
+
 
 # class VisitorAdmin(admin.ModelAdmin):
 #     list_display = ['visname', 'viscode', 'temp', 'uniname', 'visfloor'] # 커스터마이징 코

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include './all.html' %}
+        <title>borr0u - Login</title>
+    </head>
+    <body id="page-top">
+        {% include './navigation.html' %}
+        <!-- Login Section -->
+        <body>
+            <header class="login">
+                <h2>로그인</h2>
+                <ul>
+                    <!-- <form id="login"> -->
+                    <form method = "POST" action ="{%url 'login' %}">
+                        {% csrf_token %}
+                        <li>
+                            <input required id="username" type="text" placeholder="아이디" name="username"
+                                    value="{{form.username.value|default_if_none:''}}"/>
+                        </li>
+                        <li>
+                            <input required id="password" type="password" placeholder="비밀번호" minlength="10" name="password"
+                                    value="{{form.password.value|default_if_none:''}}"/>
+                                    
+                        </li>
+                        <li>
+                            <input type="checkbox" id="chk_id" name="chk_id" />
+                            <label for="chk_id">아이디저장</label>
+                        </li>
+                        <li>
+                            <input type="submit" value="로그인" />
+                        </li>
+                    </form>
+                </ul>
+                <div>
+                    <ul>
+                        <li><a href="{% url 'sign_up' %}">회원가입</a></li>
+                        <li><a href="{% url 'find_id_pwd' %}">아이디/비밀번호 찾기</a></li>
+                    </ul>
+                </div>
+            </header>
+        </body>
+    </body>        
+</html>
+
+

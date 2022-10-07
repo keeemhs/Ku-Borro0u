@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include './all.html' %}
+        <title>borr0u - Contact</title>
+    </head>
+    <body id="page-top">
+        {% include './navigation.html' %}
+        <!-- Login Section -->
+        <body>
+            <header class="regist">
+                <h2>문의하기</h2>
+                <ul>
+                    <form id="regist">
+                        <li>
+                            <h>제목</h>
+                            <input required id="title" type="text" placeholder="제목" name="title"/>
+                        </li>
+                        <li>
+                            <h>이메일</h>
+                            <input required id="email" type="text" placeholder="이메일" name="email"/>
+                        </li>
+                        <li>
+                            <h>문의내용</h>
+                            <input style="height: 200px" required id="contact" type="text" placeholder="문의내용" name="contact" maxlength="50"/>
+                        </li>
+                        <div class="button">
+                            <input type="submit" value="전송" />
+                        </div>
+                    </form>
+                </ul>
+            </header>
+        </body>
+    </body>
+</html>
