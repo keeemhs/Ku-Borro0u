@@ -18,6 +18,8 @@ urlpatterns = [
     path('detail/', ap.detail, name='detail'),
     path('find_id_pwd/', ap.find_id_pwd, name='find_id_pwd'),
     path('login/', ap.login, name='login'),
+    path('changepassword/', ap.changepassword, name='changepassword'),
+    path('restrictiondetailsofuse/', ap.restrictiondetailsofuse, name='restrictiondetailsofuse'),
     # path('login/', auth_views.LoginView.as_view(template_name='app/login.html'), name='login'),
     # path('login/', LoginView.as_view(template_name='app/login.html'), name='login'),
     path('mypage/', ap.mypage, name='mypage'),
@@ -27,16 +29,27 @@ urlpatterns = [
     path('search_result/', ap.search_result, name='search_result'),
     path('sign_up/', ap.sign_up, name='sign_up'),
     path('sign_in/', ap.sign_in, name='sign_in'),
-    path('wish_detail/', ap.wish_detail, name='wish_detail'),
+    path('wish_detail/<int:ident>/', ap.wish_detail, name='wish_detail'),
     path('logout/', ap.logout, name='logout'),
     path('manage/', ap.manage, name='manage'),
+    path('manage_detail/<int:ident>/', ap.manage_detail, name='manage_detail'),
+    path('borrow_detail/<int:ident>/', ap.borrow_detail, name='borrow_detail'),
     path('wish/', ap.wish, name='wish'),
+    path('contact/', ap.contact, name='contact'),
+    path('my_contact', ap.my_contact, name='my_contact'),
+    path('what_i_borrowed', ap.what_i_borrowed, name='what_i_borrowed'),
+    path('what_i_borrowed_detail/<int:ident>/', ap.what_i_borrowed_detail, name='what_i_borrowed_detail'),
     path('', include('app.urls')),
+    path('search/', ap.search, name="search"),
+    path('index/', ap.index, name='index'),
+    # path('/', include('django.contrib.auth.urls')),
     # +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    # path('borrow_detail/', ap.detail, name="borrow_detail"),
+
 
 
 
     # path('login/', ap.LoginView.as_view(), name='login'),
     # path('logout/', ap.LogoutView.as_view(), name='logout'),
     # path("accounts/",include('accounts.urls'))
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)       

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include './all.html' %}
+        <title>borr0u - Restriction Details of Use</title>
+    </head>
+    <body id="page-top">
+        {% include './navigation.html' %}
+        <!-- Login Section -->
+        <body style="padding-top: 75px;">
+            <header class="regist">
+                <h2>이용제한내역</h2>
+                <ul>
+                    <form method="POST" action="{%url 'restrictiondetailsofuse'%}">
+                        <li>
+                            <h>Borro0u는 이용자들의 권리를 보호하고 건강한 인터넷 환경을 마련하고자 이용약관, 이용정책 및 운영원칙을 정해두고 이에 어긋나는 활동을 제한하고 있습니다.</h><br><br>
+                            <h>대표적으로 부적절한 홍보/불법상품 판매 등 여러 유형이 있습니다.</h><br><br>
+                            <h>최근 1년간 운영원칙을 위반한 게시물 조치로 인해 함께 적용된 ID 이용제한 내역을 제공받을 수 있습니다.</h><br><br>
+                            <h>다만, 비정상적인 로그인이 감지되어 적용된 ID 보호조치 또는 ID 이용제한이 적용되지 않은 게시물 삭제 조치 건은 포함되지 않습니다.</h>
+                        </li>
+                        <li>
+                            <input type="button" class="btn btn-primary" value="나가기" onclick="history.go(-1)"/>
+                        </li>
+                    </form>
+                </ul>
+            </header>
+        </body>
+    </body>
+</html>

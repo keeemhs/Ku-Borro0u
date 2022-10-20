@@ -2,13 +2,16 @@ from django.db import models
 
 
 class Article(models.Model):
-    title = models.CharField(primary_key=True, max_length=30)
+    title = models.CharField(max_length=30)
     regist_date = models.DateField(blank=True, null=True)
     exp_date = models.DateField(blank=True, null=True)
     notice = models.TextField(blank=True, null=True)
     price = models.IntegerField(blank=True, null=True)
-    regist_code = models.CharField(max_length=45, blank=True, null=True)
-    categorie = models.CharField(max_length=45, blank=True, null=True)
+    username = models.CharField(max_length=45, blank=True, null=True)    
+    categorie = models.CharField(max_length=45, blank=True, null=True)   
+    being_rented = models.CharField(max_length=45, blank=True, null=True)
+    ident = models.AutoField(primary_key=True)
+    test = models.CharField(max_length=45, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -88,6 +91,17 @@ class AuthUserUserPermissions(models.Model):
         unique_together = (('user', 'permission'),)
 
 
+class Contact(models.Model):
+    title = models.CharField(primary_key=True, max_length=45)
+    email = models.CharField(max_length=45, blank=True, null=True)
+    content = models.CharField(max_length=45, blank=True, null=True)
+    username = models.CharField(max_length=45, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'contact'
+
+
 class DjangoAdminLog(models.Model):
     action_time = models.DateTimeField()
     object_id = models.TextField(blank=True, null=True)
@@ -148,3 +162,16 @@ class User(models.Model):
     class Meta:
         managed = False
         db_table = 'user'
+
+class Photo(models.Model):
+    images = models.CharField(max_length=45, blank=True, null=True)
+    # image = models.FileField(upload_to='images/')
+    username = models.CharField(max_length=45, blank=True, null=True)
+    ident = models.AutoField(primary_key=True)
+
+    class Meta:
+        managed = False
+        db_table = 'photo'
+
+
+# image = models.ImageField(upload_to='images/')

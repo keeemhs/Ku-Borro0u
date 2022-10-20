@@ -11,25 +11,31 @@
             <header class="regist">
                 <h2>문의하기</h2>
                 <ul>
-                    <form id="regist">
+                    <form method="POST" action="{%url 'contact'%}">
+                        {% csrf_token %}
                         <li>
                             <h>제목</h>
                             <input required id="title" type="text" placeholder="제목" name="title"/>
                         </li>
                         <li>
                             <h>이메일</h>
-                            <input required id="email" type="text" placeholder="이메일" name="email"/>
+                            <input required id="email" type="text" placeholder="이메일" name="email" value="{{user.email}}"/>
                         </li>
                         <li>
                             <h>문의내용</h>
-                            <input style="height: 200px" required id="contact" type="text" placeholder="문의내용" name="contact" maxlength="50"/>
+                            <input style="height: 200px" required id="content" type="text" placeholder="문의내용" name="content" maxlength="50"/>
                         </li>
-                        <div class="button">
-                            <input type="submit" value="전송" />
-                        </div>
+                        <li>
+                            <input type="submit" class="btn btn-primary" value="전송하기"/>
+                        </li>
                     </form>
                 </ul>
             </header>
         </body>
     </body>
 </html>
+
+
+
+
+

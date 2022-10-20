@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include './all.html' %}
+        <title>borr0u - Contact</title>
+    </head>
+    <body id="page-top">
+        {% include './navigation.html' %}
+        <!-- Login Section -->
+        <body>
+            <h2>{{ contacts.username }}님의 문의내역</h2>
+            <h2>{{ contact.username }}님의 문의내역</h2>
+            <header class="regist">
+                <h2>{{ contacts.username }}님의 문의내역</h2>
+                <h2>{{ contact.username }}님의 문의내역</h2>
+                {% for contacts in contacts%}
+                <!-- <h2>{{ contacts.username }}님의 문의내역</h2> -->
+                <ul>
+
+                    {{ contacts.title }} <br><br>
+                    {{ contacts.content }}
+                
+
+                </ul>
+                {%endfor%}
+            </header>
+        </body>
+    </body>
+</html>

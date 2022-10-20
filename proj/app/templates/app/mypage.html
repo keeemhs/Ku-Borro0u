@@ -6,42 +6,52 @@
     </head>
     <body id="page-top">
         {% include './navigation.html' %}
-        <body>
+        <body style="padding-top: 75px;">
             <header class="regist">
                 <h2>마이페이지</h2>
                 <ul>
-                    <form id="mypage">
-                        <div class="button">
+                    <form method="POST" action="{%url 'mypage'%}">
+                        <div style="display: inline-flex;">
                             <!-- <input type="button" onclick="location.href={% url 'borrow' %}" value="내 물건 관리" /> -->
-                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'manage' %}">내 물건 관리</a></li>
-                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'wish' %}">찜</a></li>
-                            <!-- <input type="button" onclick="location.href='./wish.html'" value="찜" /> -->
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'manage' %}"><img src="../../../static/assets/img/myproduct.png" width="100px"></a></li>
                         </div>
+                        <!--
                         <li>
-                            <h>학번</h>
-                            <div style="border: 0.5px solid black; padding: 10px"></div>
+                            <h>포인트</h>
+                            <div style="border: 0.5px solid black; padding: 10px">
+                            {{user.point}}</div>
+                        </li>
+                        -->
+                        <li>
+                            <h>사용자아이디</h>
+                            <div style="border: 0.5px solid black; padding: 10px">
+                            {{user.username}}</div>
                         </li>
                         <li>
                             <h>이메일</h>
-                            <div style="border: 0.5px solid black; padding: 10px"></div>
+                            <div style="border: 0.5px solid black; padding: 10px">
+                            {{user.email}}</div>
                         </li> 
-                        <!--
-                            <li><a href="">비밀번호 변경</a></li>
-                        <div style="display: flex;">
-                            <h>푸쉬알림</h>
-                            <div id="container">
-                                <div class="toggle-switch">
-                                    <input type="checkbox" id="chkTog4">
-                                    <label for="chkTog4">
-                                        <span class="toggle-track"></span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        -->
-                        
-                        <li><a href="../app/">이용제한내역</a></li>    
+                        <li><a href="{% url 'restrictiondetailsofuse' %}">이용제한내역</a></li>
+                        <li><a href="{% url 'my_contact'%}">문의내역</a></li>  
+                        <li><a href="{% url 'contact' %}">문의하기</a></li>  
                         <li><a href="{% url 'login' %}">로그아웃</a></li>
+
+                        <!--
+                            버튼 모양
+                            <li>
+                                <input type="button" class="btn btn-primary" value="비밀번호 변경" onclick="location.href='./changepassword.html'"/>
+                            </li>
+                            <li>
+                                <input type="button" class="btn btn-primary" value="이용제한내역" onclick="location.href='./restrictiondetailsofuse.html'"/>
+                            </li>
+                            <li>
+                                <input type="button" class="btn btn-primary" value="문의하기" onclick="location.href='./contact.html'"/>
+                            </li>
+                            <li>
+                                <input type="button" class="btn btn-primary" value="로그아웃" onclick="location.href='./login.html'"/>
+                            </li>
+                        -->
 
                     </form>
                 </ul>

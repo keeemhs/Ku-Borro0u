@@ -1,47 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        {% include './all.html' %}
-        <title>borr0u - Detail</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <title>borrou - Detail</title>
+        <link rel="stylesheet" media="screen" href="https://d1unjqcospf8gs.cloudfront.net/assets/home/articles/flea_market-fe277be5f7199c789aca76d8d0cb818baed8140ac2e13fac2531d40ab404b0bb.css">
+        <link rel="stylesheet" media="all" href="https://d1unjqcospf8gs.cloudfront.net/assets/home/articles/show-b27e412b7db122542e0fa1b05d598f06cbf7464b59b8ddf0fbead63cc963157d.css">
+        <script src="https://connect.facebook.net/signals/config/992961397411651?v=2.9.85&amp;r=stable" async=""></script><script src="https://connect.facebook.net/en_US/sdk.js?hash=5bdb9494576fd8dac41e6f21f259e7c2" async="" crossorigin="anonymous"></script><script async="" src="https://websdk.appsflyer.com?st=banners&amp;"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-PJSK4QL"></script><script async="" src="//connect.facebook.net/en_US/fbevents.js"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script id="facebook-jssdk" src="//connect.facebook.net/en_US/sdk.js"></script><script src="https://d1unjqcospf8gs.cloudfront.net/assets/home/articles/show-e66cdd34dd97a7378f653267bf42574539d4c8c65a9ee81563b81c7a842c1f4b.js"></script>
+      
+        <link rel="apple-touch-icon" sizes="192x192" href="/images/icons/daangn_logo_192.png">
+        <link rel="apple-touch-icon-precomposed" href="/images/icons/daangn_logo_192.png">
+      
+        <meta name="csrf-param" content="authenticity_token">
+        <meta name="csrf-token" content="tnIOcBEA5LB1PfDJCa5TH60TExyKQ0695RyU7TkFX6P6bR1--xik-2MOR6Iz9VxylWtp_Px2jLnFOKzjJr5ifg">
     </head>
-    <body id="page-top">
-        {% include './navigation.html' %}
-
-        <!-- Login Section -->
-        <body>
-            <header class="regist">
-                <h2>상세내용</h2>
-                <ul>
-                    <form id="regist">
-                        <div class="container">
-                                <table class="table table-sm table-hover">
-                                    <thead style="border-top: 1px solid #dee2e6;">
-                                        <tr class="text-center">
-                                            <th style="font-weight: bold; font-size: 16px;">제목</th>
-                                            <th style="font-weight: bold; font-size: 16px;">작성자</th>
-                                            <th style="font-weight: bold; font-size: 16px;">등록일</th>
-                                            <th style="font-weight: bold; font-size: 16px;">만료일</th>
-                                            <th style="font-weight: bold; font-size: 16px;">가격</th>
-                                        </tr>
-
-                
-                                        {% for article in articles %}
-                                        <tr class="table-secondary text-center" style="font-weight: bold; cursor:pointer;" onclick="location.href='/detail/'">
-                                            <td>{{ article.title }}</td>
-                                            <td class="text-left" style="width:50%"><a id="article-{{ article.id }}"><i class="fas fa-bullhorn"></i>&nbsp;&nbsp;&nbsp;{{ article.regist_code|truncatechars:30 }}</a></td>
-                                            <td>{{ article.regist_date }}</td>
-                                            <td>{{ article.exp_date}}</td>
-                                            <td>{{ article.price }}</td>
-                                        </tr>
-                                        {% endfor %}
-
-                
-                                    </thead>
-                                   
-                                </table>
-                    </form>
-                </ul>
-            </header>
-        </body>
+    <body>
+        <article id="content" data-id="474724307">
+            <h1 class="hide">까페정리 합니다</h1>
+            <section id="article-images">
+                <h3 class="hide">이미지</h3>
+                <div id="image-slider">
+                    <div class="slider-wrap">
+                        <div class="slider slick-initialized slick-slider" data-article-id="474724307">
+                            <div class="slick-list draggable">
+                                <div class="slick-track" style="opacity: 1; width: 729px; transform: translate3d(0px, 0px, 0px);">
+                                    <div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 729px;">
+                                        <div>
+                                            <a href="/images?image_index=0&amp;object_id=474724307&amp;object_type=Article" style="width: 100%; display: inline-block;" tabindex="0">
+                                                <div>
+                                                    <div class="image-wrap" data-image-id="1896354140" data-image-index="1">
+                                                        <img class="portrait" alt="까페정리 합니다의 사진 1" src="https://dnvefa72aowie.cloudfront.net/origin/article/202210/99270aaa84976c4e2abdce352d7a3abf0af54c21a80aac55623491c0d8db2633.webp?q=95&amp;s=1440x1440&amp;t=inside" style="opacity: 1;">
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="article-description">
+                <h1 property="schema:name" id="article-title" style="margin-top:0px;">{{ articles.title }}</h1>
+                <p id="article-category">
+                    {{ articles.categorie }} ∙ <time>{{ articles.exp_date }} 까지</time>
+                </p>
+                <p property="schema:priceValidUntil" datatype="xsd:date" content="2024-10-16"></p>
+                <p rel="schema:url" resource="https://www.daangn.com/474724307"></p>
+                <p property="schema:priceCurrency" content="KRW"></p>
+                <p id="article-price" property="schema:price" content="80000.0" style="font-size:18px; font-weight:bold;">
+                    {{ articles.price }}원
+                </p>
+                <div property="schema:description" id="article-detail">
+                    <p>
+                        카테고리:{{ articles.categorie }}
+                    </p>
+                </div>
+            </section>
+        </article>
     </body>
 </html>

@@ -2,147 +2,46 @@
 <html lang="en">
     <head>
         {% include './all.html' %}
-        <title>borr0u - Borrow</title>
-    </head>
-    <body id="page-top">
+      
+        <title>borrou - Borrow</title>
 
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand" href="{% url 'main'%}">borr0u</a>
-                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'borrow' %}">물건대여</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'rented_other_detail' %}">물건관리</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'regist' %}">물건등록</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'mypage' %}">마이페이지</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'login' %}">로그인</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class="container">
-            <div class="row mt-5">
-                <div class="col-12">
-                    <h4 style="font-weight: bold;">공지사항</h4>
-                    {% if q %}
-                    <h5 style="color: gray; font-weight: 550;"><i class="fas fa-search"></i>&nbsp;'{{ q }}' 검색 결과입니다.</h5>
-                    {% endif %}
-                </div>
-            </div>
-            <div>
-                <table class="table table-sm table-hover">
-                    <thead style="border-top: 1px solid #dee2e6;">
-                        <tr class="text-center">
-                            <th style="font-weight: bold; font-size: 16px;">제목</th>
-                            <th style="font-weight: bold; font-size: 16px;">작성자</th>
-                            <th style="font-weight: bold; font-size: 16px;">등록일</th>
-                            <th style="font-weight: bold; font-size: 16px;">만료일</th>
-                            <th style="font-weight: bold; font-size: 16px;">가격</th>
-                        </tr>
-                        {% if q %}
-                        {% else %}
-
-                        {% for article in articles %}
-                        <tr class="table-secondary text-center" style="font-weight: bold; cursor:pointer;" onclick="location.href='/detail/'">
-                            <td>{{ article.title }}</td>
-                            <td class="text-left" style="width:50%"><a id="article-{{ article.id }}"><i class="fas fa-bullhorn"></i>&nbsp;&nbsp;&nbsp;{{ article.regist_code|truncatechars:30 }}</a></td>
-                            <td>{{ article.regist_date }}</td>
-                            <td>{{ article.exp_date}}</td>
-                            <td>{{ article.price }}</td>
-                        </tr>
-                        {% endfor %}
-                        {% endif %}
-
-                    </thead>
-                   
-                </table>
-            </div>
-            
-            <div style="margin-top: 30px;">
-                <form action="" method="GET">
-                    <div class="col">
-                        <div style="float: right;" class="form-row">
-                            <div class="form-row">
-                                <div class="col" style="margin-top: 10px;">
-                                    <select style="width: 6em;" class="custom-select custom-select-md" name="type">
-                                        <option value="all">전체</option>
-                                        <option value="title_content">제목+내용</option>
-                                        <option value="title">제목</option>
-                                        <option value="content">내용</option>
-                                        <option value="writer">작성자</option>
-                                    </select>
-                                </div>
-                                <div class="col" style="margin-top: 10px;">
-                                    <input type="text" name="q" value="{{ q }}" class="form-control form-control-md"
-                                        style="width: 15em;" placeholder="검색어를 입력해주세요.">
-                                </div>
-                                <div class="col">
-                                    <!-- <button class="btn btn-md btn-outline-dark" type="submit">검색</button> -->
-                                    <button class="btn btn-sm" type="submit" id="search_btn">검색</button>
-                                </div>
-                            </div>
-                        </div>
+        <link rel="stylesheet" media="all" href="https://d1unjqcospf8gs.cloudfront.net/assets/home/home-0ca0066565dd835558a4980e892d44107db566845f96558ffe5aefcee8c21853.css">
+        <script src="https://connect.facebook.net/signals/config/992961397411651?v=2.9.85&amp;r=stable" async=""></script><script src="https://connect.facebook.net/en_US/sdk.js?hash=522182bc1a745d259d7dbd9e5d10f62d" async="" crossorigin="anonymous"></script><script async="" src="https://websdk.appsflyer.com?st=banners&amp;"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-PJSK4QL"></script><script async="" src="//connect.facebook.net/en_US/fbevents.js"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script id="facebook-jssdk" src="//connect.facebook.net/en_US/sdk.js"></script><script src="https://d1unjqcospf8gs.cloudfront.net/assets/home/home-4ea6debb9f20b5f3862b2f1d021bb852203de53d0ed27a030727a014927e3652.js"></script>
+   <body>   
+        {% include './navigation.html' %}
+        <section class="home-main-section background-gray">
+            <div class="home-hot-content">
+                <h1 class="home-main-title text-center home-hot-title" style="margin-bottom: 35px;">
+                    물건대여
+                </h1>
+                <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="post">
+                    {% csrf_token %}
+                    <div style="display: flex; flex: 1; float: right; vertical-align: top;">
+                        <input style="height: 50px; width: 200px; margin-right: 20px; margin-top: 0; margin-bottom: 50px;" class="form-control mr-sm-2" type="search" placeholder="검색어" aria-label="Search" name="q" value="{{q}}">
+                        <button style="height: 50px; width: 100px;" class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
                     </div>
                 </form>
-                {% if request.user.level == '0' or request.user.level == '1' %}
-                <div>
-                    <div>
-                        <!-- <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='/article/write/'">글쓰기</button> -->
-                        <a href="{% url 'article:article_write' %}" id="write_btn" class="btn btn-sm">글쓰기</a>
-                    </div>
-                </div>
-                <br>
-                {% else %}
-                <br><br><br>
-                {% endif %}
-                <div class="col-md-offset-6">
-                    {% if is_paginated %}
-                    <!-- <ul class="pagination justify-content-center pagination-sm"> -->
-                    <ul class="pagination justify-content-center">
-                        {% if page_obj.has_previous %}
-                        <li class="page-item">
-                            <a class="page-link" href="?type={{ type }}&q={{ q }}&page={{ page_obj.previous_page_number }}"
-                                tabindex="-1" style="font-size: 15px;">이전</a>
-                        </li>
-                        {% else %}
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1" style="font-size: 15px;">이전</a>
-                        </li>
-                        {% endif %}
-        
-                        {% for page in page_range %}
-                        <li class="page-item {% if page == page_obj.number %} activate {% endif %}">
-                            <a class="page-link" href="?type={{ type }}&q={{ q }}&page={{ page }}" style="font-size: 15px;">{{ page }}</a>
-                        </li>
-                        {% endfor %}
-        
-                        {% if page_obj.has_next %}
-                        <li class="page-item">
-                            <a class="page-link"
-                                href="?type={{ type }}&q={{ q }}&page={{ page_obj.next_page_number }}" style="font-size: 15px;">다음</a>
-                        </li>
-                        {% else %}
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" style="font-size: 15px;">다음</a>
-                        </li>
-                        {% endif %}
-                    </ul>
-                    {% endif %}
-                </div>
+                <div class="cards-wrap">
+                    {% for article in articles %}
+                    <article class="card-top ">
+                        <a class="card-link " data-event-label="474702600" href="{% url 'borrow_detail' article.ident%}">
+                            <div class="card-photo ">
+                                <img alt="다혼 자전거 판매합니다" src="https://dnvefa72aowie.cloudfront.net/origin/article/202210/83cbd5362a585918a9b4a7354984ecbfb20208da27522d9b39579099b2cfe1f9.webp?q=82&amp;s=300x300&amp;t=crop">
+                            </div>
+                            <div class="card-desc">
+                                <h2 class="card-title">{{ article.title }}</h2>
+                                <div class="card-price ">
+                                    {{ article.price }}원
+                                </div>
+                                <div class="card-counts">
+                                    <span>{{ article.categorie }}</span> ∙ <span>{{ article.exp_date | date:"m-d" }}</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    {% endfor %}
+                </article>
             </div>
-        </div>
-        
-        <script type="text/javascript">
-            target = window.location.search.split('&')[0].split('=')[1]
-            var type = document.getElementsByTagName('option')
-            for (var i = 0; i < 5; i++) {
-                if (type[i].value === target) {
-                    type[i].setAttribute('selected', 'selected')
-                }
-            }
-        </script>
+        </section>
+    </body>
+</html>

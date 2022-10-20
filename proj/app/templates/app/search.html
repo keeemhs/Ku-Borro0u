@@ -1,0 +1,22 @@
+{% extends 'borrow.html' %}
+{% if not articles %}
+
+        <h1>검색 결과가 없습니다</h1>
+
+    {% else %}
+
+        {% for articles in articles.all %}
+        <div class="container"> 
+            <div class="card">
+                <div class="card-body">
+                    <h1>{{ articles.title }}</h1>
+                    <p>{{ articles.exp_date | date:"Y-m-d" }}</p>
+                    <p>{{ articles.notice }}<a href="{% url 'detail' articles.ident %}"> ...자세히 보기</a></p> 
+                </div>
+            </div>
+        </div>
+        <br>
+        {% endfor %}
+
+    {% endif %}
+{% endblock %}
