@@ -17,21 +17,32 @@
                 <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="post">
                     {% csrf_token %}
                     <div style="display: flex; flex: 1; float: right; vertical-align: top;">
-                        <input style="height: 50px; width: 200px; margin-right: 20px; margin-top: 0; margin-bottom: 50px;" class="form-control mr-sm-2" type="search" placeholder="검색어" aria-label="Search" name="q" value="{{q}}">
+                        <input type="button" style="margin-top: 0; height: 50px; width: 100px; font-size: 20px; background-color: white;" value="전체" onClick=""> 
+                        <input type="button" style="margin-top: 0; height: 50px; width: 100px; font-size: 20px; background-color: white;" value="의류" onClick=""> 
+                        <input type="button" style="margin-top: 0; height: 50px; width: 100px; font-size: 20px; background-color: white;" value="주방" onClick=""> 
+                        <input type="button" style="margin-top: 0; height: 50px; width: 100px; font-size: 20px; background-color: white;" value="가전" onClick=""> 
+                        <input type="button" style="margin-top: 0; height: 50px; width: 100px; font-size: 20px; background-color: white;" value="전자" onClick=""> 
+                        <input type="button" style="margin-top: 0; height: 50px; width: 100px; font-size: 20px; background-color: white;" value="책" onClick=""> 
+                        <input type="button" style="margin-top: 0; height: 50px; width: 100px; font-size: 20px; background-color: white;" value="기타" onClick=""> 
+                        <input style="height: 50px; width: 200px; margin-right: 20px; margin-top: 0; margin-bottom: 50px; margin-left: 10px;" class="form-control mr-sm-2" type="search" placeholder="검색어" aria-label="Search" name="q" value="{{q}}">
                         <button style="height: 50px; width: 100px;" class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
                     </div>
                 </form>
                 <div class="cards-wrap">
                     {% for article in articles %}
+                    {% if article.being_rented == 'x'%}
                     <article class="card-top ">
+                        
                         <a class="card-link " data-event-label="474702600" href="{% url 'borrow_detail' article.ident%}">
-                            <div class="card-photo ">
-                                <img alt="다혼 자전거 판매합니다" src="https://dnvefa72aowie.cloudfront.net/origin/article/202210/83cbd5362a585918a9b4a7354984ecbfb20208da27522d9b39579099b2cfe1f9.webp?q=82&amp;s=300x300&amp;t=crop">
-                            </div>
+                            {% if article.image %}
+                                <div class="card-photo ">
+                                    <img alt="다혼 자전거 판매합니다" src="https://dnvefa72aowie.cloudfront.net/origin/article/202210/83cbd5362a585918a9b4a7354984ecbfb20208da27522d9b39579099b2cfe1f9.webp?q=82&amp;s=300x300&amp;t=crop">
+                                </div>
+                            {% endif %}
                             <div class="card-desc">
                                 <h2 class="card-title">{{ article.title }}</h2>
                                 <div class="card-price ">
-                                    {{ article.price }}원
+                                {{ article.price }}원
                                 </div>
                                 <div class="card-counts">
                                     <span>{{ article.categorie }}</span> ∙ <span>{{ article.exp_date | date:"m-d" }}</span>
@@ -39,8 +50,9 @@
                             </div>
                         </a>
                     </article>
+                    {% endif %}
                     {% endfor %}
-                </article>
+                </div>
             </div>
         </section>
     </body>

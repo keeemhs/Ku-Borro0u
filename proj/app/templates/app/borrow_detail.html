@@ -56,7 +56,12 @@
                 </div>
                 
                 <div style="margin: auto; text-align: center;">
-                    <li><a href="{% url 'index' %}">결제</a></li>
+                    <div class="row mt-5">
+                        <form method="post" class="col-12 text-center">
+                          {% csrf_token %}
+                          <button class="btn btn-warning">카카오페이로 결제하기</button>
+                        </form>
+                      </div>
                     <input type="button" style="height: 50px; width: 150px; font-size: 30px; background-color: white;" value="나가기" onClick="history.go(-1)"> 
                 </div>
 

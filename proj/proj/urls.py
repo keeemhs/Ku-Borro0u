@@ -17,18 +17,27 @@ urlpatterns = [
     path('contact/', ap.contact, name='contact'),
     path('detail/', ap.detail, name='detail'),
     path('find_id_pwd/', ap.find_id_pwd, name='find_id_pwd'),
+    path('find_id/<int:studentNum>/<str:name>/', ap.find_id, name='find_id'),
     path('login/', ap.login, name='login'),
     path('changepassword/', ap.changepassword, name='changepassword'),
-    path('restrictiondetailsofuse/', ap.restrictiondetailsofuse, name='restrictiondetailsofuse'),
+    path('restrictiondetailsofuse/', ap.restrictiondetailsofuse,
+         name='restrictiondetailsofuse'),
     # path('login/', auth_views.LoginView.as_view(template_name='app/login.html'), name='login'),
     # path('login/', LoginView.as_view(template_name='app/login.html'), name='login'),
     path('mypage/', ap.mypage, name='mypage'),
     path('passwdreset/', ap.passwdreset, name='passwdreset'),
     path('regist/', ap.regist, name='regist'),
-    path('rented_other_detail/', ap.rented_other_detail, name='rented_other_detail'),
+    path('rented_other_detail/', ap.rented_other_detail,
+         name='rented_other_detail'),
     path('search_result/', ap.search_result, name='search_result'),
     path('sign_up/', ap.sign_up, name='sign_up'),
     path('sign_in/', ap.sign_in, name='sign_in'),
+
+    # 이메일 인증
+    path('email_check/<str:email_str>/', ap.email_check, name='email_check'),
+    path('validate_email/<str:email_str>/',
+         ap.validate_email, name='validate_email'),
+
     path('wish_detail/<int:ident>/', ap.wish_detail, name='wish_detail'),
     path('logout/', ap.logout, name='logout'),
     path('manage/', ap.manage, name='manage'),
@@ -38,18 +47,25 @@ urlpatterns = [
     path('contact/', ap.contact, name='contact'),
     path('my_contact', ap.my_contact, name='my_contact'),
     path('what_i_borrowed', ap.what_i_borrowed, name='what_i_borrowed'),
-    path('what_i_borrowed_detail/<int:ident>/', ap.what_i_borrowed_detail, name='what_i_borrowed_detail'),
+    path('what_i_borrowed_detail/<int:ident>/',
+         ap.what_i_borrowed_detail, name='what_i_borrowed_detail'),
     path('', include('app.urls')),
     path('search/', ap.search, name="search"),
     path('index/', ap.index, name='index'),
+    path('approval/', ap.approval, name='approval'),
+    path('withdraw/', ap.withdraw, name="withdraw"),
+    # path('/', include('django.contrib.auth.urls')),
+    # +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    # path('borrow_detail/', ap.detail, name="borrow_detail"),
+    path('change_persnal', ap.change_persnal, name="change_persnal"),
+    path('my_withdraw/', ap.my_withdraw, name="my_withdraw"),
+    path('edit_myarticle/<int:ident>/', ap.edit_myarticle, name='edit_myarticle'),
     # path('/', include('django.contrib.auth.urls')),
     # +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     # path('borrow_detail/', ap.detail, name="borrow_detail"),
 
 
-
-
     # path('login/', ap.LoginView.as_view(), name='login'),
     # path('logout/', ap.LogoutView.as_view(), name='logout'),
     # path("accounts/",include('accounts.urls'))
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)       
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

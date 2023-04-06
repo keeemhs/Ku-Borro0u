@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include './all.html' %}
+        <title>borr0u - Contact</title>
+    </head>
+    <body id="page-top">
+        {% include './navigation.html' %}
+        <!-- Login Section -->
+        <body>
+            <header class="regist">
+              <h2>출금신청</h2><br><br><br>
+              <form method="POST" action="{%url 'withdraw'%}" enctype="multipart/form-data">
+                {% csrf_token %}
+                  {%for mileages in mileages%}
+                    <input style="width: 350px; height: 50px;" required id="price" type="text" placeholder="만원 단위로 출금신청이 가능합니다." name="price" style="height: 50px;" required/><br>
+                  <h9 style="color: gray;">현재 잔액: {{ mileages.mileage }}원</h9><br><br>
+                  {%endfor%}
+                  <div style="display: flex; text-align: center; margin-left: 30px; margin-bottom: -20px;">
+                    <select style="width: 100px; height: 50;" name="bank" required>
+                      <option value="sinhan">신한</option>
+                      <option value="nh">농협</option>
+                      <option value="sinhyup">신협</option>
+                      <option value="kakaopay">카카오페이</option>
+                      <option value="hana">하나</option>
+                    </select><br>
+                    <input style="width: 250px; height: 50px;" required id="account_number" type="text" placeholder="계좌번호" name="account_number" style="height: 50px;" required/><br><br>
+                  </div>
+                  <input style="width: 350px; height: 50px;" required id="phone" type="text" placeholder="연락처" name="phone" style="height: 50px;" required/><br><br>
+                  <input style="width: 350px; height: 50px;" type="submit" class="btn btn-primary" value="출금신청하기"/>
+            </header>
+        </body>
+    </body>
+</html>

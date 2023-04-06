@@ -7,11 +7,11 @@ class Article(models.Model):
     exp_date = models.DateField(blank=True, null=True)
     notice = models.TextField(blank=True, null=True)
     price = models.IntegerField(blank=True, null=True)
-    username = models.CharField(max_length=45, blank=True, null=True)    
-    categorie = models.CharField(max_length=45, blank=True, null=True)   
+    username = models.CharField(max_length=45, blank=True, null=True)
+    categorie = models.CharField(max_length=45, blank=True, null=True)
     being_rented = models.CharField(max_length=45, blank=True, null=True)
     ident = models.AutoField(primary_key=True)
-    test = models.CharField(max_length=45, blank=True, null=True)
+    image = models.CharField(max_length=45, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -63,6 +63,9 @@ class AuthUser(models.Model):
     major = models.CharField(max_length=45, blank=True, null=True)
     undergrad = models.CharField(max_length=45, blank=True, null=True)
     name = models.CharField(max_length=45, blank=True, null=True)
+    mileage = models.CharField(max_length=45, blank=True, null=True)
+    adress = models.CharField(max_length=45, blank=True, null=True)
+    state = models.CharField(max_length=45, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -96,6 +99,7 @@ class Contact(models.Model):
     email = models.CharField(max_length=45, blank=True, null=True)
     content = models.CharField(max_length=45, blank=True, null=True)
     username = models.CharField(max_length=45, blank=True, null=True)
+    date = models.CharField(max_length=60, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -108,7 +112,8 @@ class DjangoAdminLog(models.Model):
     object_repr = models.CharField(max_length=200)
     action_flag = models.PositiveSmallIntegerField()
     change_message = models.TextField()
-    content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING, blank=True, null=True)
+    content_type = models.ForeignKey(
+        'DjangoContentType', models.DO_NOTHING, blank=True, null=True)
     user = models.ForeignKey(AuthUser, models.DO_NOTHING)
 
     class Meta:
@@ -163,6 +168,7 @@ class User(models.Model):
         managed = False
         db_table = 'user'
 
+
 class Photo(models.Model):
     images = models.CharField(max_length=45, blank=True, null=True)
     # image = models.FileField(upload_to='images/')
@@ -175,3 +181,55 @@ class Photo(models.Model):
 
 
 # image = models.ImageField(upload_to='images/')
+
+
+class Mileage(models.Model):
+    username = models.CharField(primary_key=True, max_length=45)
+    email = models.CharField(max_length=45, blank=True, null=True)
+    mileage = models.IntegerField(blank=True, null=True)
+    state = models.CharField(max_length=45, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'mileage'
+
+
+class MileageContact(models.Model):
+    username = models.CharField(max_length=45, primary_key=True)
+    email = models.CharField(max_length=45, blank=True, null=True)
+    price = models.IntegerField(blank=True, null=True)
+    bank = models.CharField(max_length=45, blank=True, null=True)
+    account_number = models.CharField(max_length=45, blank=True, null=True)
+    phone = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'mileage_contact'
+
+
+class Photo(models.Model):
+    images = models.CharField(max_length=100, blank=True, null=True)
+    username = models.CharField(max_length=45, blank=True, null=True)
+    ident = models.AutoField(primary_key=True)
+
+    class Meta:
+        managed = False
+        db_table = 'photo'
+
+
+class User(models.Model):
+    email = models.CharField(primary_key=True, max_length=20)
+    password = models.CharField(max_length=300, blank=True, null=True)
+    phone = models.IntegerField(blank=True, null=True)
+    regis_date = models.DateField(blank=True, null=True)
+    borrow_code = models.IntegerField(blank=True, null=True)
+    regist_code = models.IntegerField(blank=True, null=True)
+    major = models.CharField(max_length=45, blank=True, null=True)
+    undergrad = models.CharField(max_length=45, blank=True, null=True)
+    username = models.CharField(max_length=45, blank=True, null=True)
+    name = models.CharField(max_length=45, blank=True, null=True)
+    mileage = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'user'

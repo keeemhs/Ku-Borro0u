@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include './all.html' %}
+        <title>borr0u - Contact</title>
+    </head>
+    <body id="page-top">
+        {% include './navigation.html' %}
+        <!-- Login Section -->
+        <body>
+            <header class="regist">
+                {% for my_withdraws in my_withdraws%}
+                <h2>{{ my_withdraws.username }}님의 출금신청내역</h2>
+                <ul>
+
+                    연락받을 전화번호: {{ my_withdraws.phone }} <br><br>
+                    신청 출금금액: {{ my_withdraws.price }}<br><br>
+                    입금받을 은행: {{ my_withdraws.bank }}<br><br>
+                    입금받을 계좌:{{ my_withdraws.account_number }}<br><br>
+                    
+
+                </ul>
+                {%endfor%}
+            </header>
+        </body>
+    </body>
+</html>

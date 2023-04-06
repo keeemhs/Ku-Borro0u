@@ -15,28 +15,30 @@
                     내가 빌린 물건
                 </h1>
                 <div class="cards-wrap">
-                    {% if q %}
-                    {% else %}
 
-                    {% for articles in articles %}
-                    <article class="card-top ">
-                        <a class="card-link " data-event-label="474702600" href="{% url 'what_i_borrowed_detail' articles.ident %}">
-                            <div class="card-photo ">
-                                <img alt="다혼 자전거 판매합니다" src="https://dnvefa72aowie.cloudfront.net/origin/article/202210/83cbd5362a585918a9b4a7354984ecbfb20208da27522d9b39579099b2cfe1f9.webp?q=82&amp;s=300x300&amp;t=crop">
-                            </div>
-                            <div class="card-desc">
-                                <h2 class="card-title">{{ articles.title }}</h2>
-                                <div class="card-price ">
-                                    {{ articles.price }}원
+                    {% if articles %}
+                        {% for articles in articles %}
+                        <article class="card-top ">
+                            <a class="card-link " data-event-label="474702600" href="{% url 'what_i_borrowed_detail' articles.ident %}">
+                                <div class="card-photo ">
+                                    <img alt="다혼 자전거 판매합니다" src="https://dnvefa72aowie.cloudfront.net/origin/article/202210/83cbd5362a585918a9b4a7354984ecbfb20208da27522d9b39579099b2cfe1f9.webp?q=82&amp;s=300x300&amp;t=crop">
                                 </div>
-                                <div class="card-counts">
-                                    <span>{{ articles.categorie }}</span> ∙ <span>{{ articles.exp_date | date:"m-d" }}</span>
+                                <div class="card-desc">
+                                    <h2 class="card-title">{{ articles.title }}</h2>
+                                    <div class="card-price ">
+                                        {{ articles.price }}원
+                                    </div>
+                                    <div class="card-counts">
+                                        <span>{{ articles.categorie }}</span> ∙ <span>{{ articles.exp_date | date:"m-d" }}</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </article>
-                    {% endfor %}
+                            </a>
+                        </article>
+                        {% endfor %}
+                    {% else %}
+                        <h1>빌린 물건이 없습니다</h1>
                     {% endif %}
+
                 </article>
             </div>
         </section>

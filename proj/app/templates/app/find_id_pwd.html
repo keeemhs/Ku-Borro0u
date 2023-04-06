@@ -11,19 +11,22 @@
             <header class="sign-in">
                 <h2>아이디/비밀번호 찾기</h2>
                 <ul>
-                    <form id="sign-in">
-                        <h>아이디 찾기</h>
-                        <li>
-                            <input required id="undergrad" type="text" placeholder="학 번" minlength="9" maxlength="9" name="undergrad"/>
-                        </li>
-                        <li>
-                            <input required id="name" type="text" placeholder="이 름" name="name"/>
-                        </li>
-                        <li>
-                            <input type="button" value="찾기" />
-                        </li>
-
-                        <h>비밀번호 찾기</h>
+                    <h>아이디 찾기</h>
+                    <li>
+                        <input required id="email" type="text" placeholder="이메일" name="email"/>
+                    </li>
+                    <li>
+                        <input required id="name" type="text" placeholder="이 름" name="name"/>
+                    </li>
+                    <li>
+                        <a style="align-items: center; font-size: 20px; border: 1px solid black; padding: 8px 180px; background-color: #efefef; height: 30px; width: 300px;" href = "javascript:;" onclick = "this.href='/find_id/' + document.getElementById('undergrad').value + '/' + document.getElementById('name').value">찾기</a>
+                    </li>
+                    <li>
+                        아이디 : {{username}}
+                    </li><br>
+                    <h>비밀번호 찾기</h>
+                    <form method="POST" id="sign-in" >
+                        {% csrf_token %}
                         <li>
                             <input required id="email" type="text" placeholder="이메일" name="email"/>
                         </li>
@@ -31,7 +34,7 @@
                             <input required id="undergrad" type="text" placeholder="학 번" minlength="9" maxlength="9" name="undergrad"/>
                         </li>
                         <li>
-                            <input type="button" value="재설정" />
+                            <input type="submit" value="재설정" />
                         </li>
                     </form>
                 </ul>

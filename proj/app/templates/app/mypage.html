@@ -4,10 +4,10 @@
         {% include './all.html' %}
         <title>borr0u - mypage</title>
     </head>
-    <body id="page-top">
+    <body id="page-top" style="overflow: scroll;">
         {% include './navigation.html' %}
         <body style="padding-top: 75px;">
-            <header class="regist">
+            <header class="regist" style="margin-top: 150px;">
                 <h2>마이페이지</h2>
                 <ul>
                     <form method="POST" action="{%url 'mypage'%}">
@@ -15,26 +15,36 @@
                             <!-- <input type="button" onclick="location.href={% url 'borrow' %}" value="내 물건 관리" /> -->
                             <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'manage' %}"><img src="../../../static/assets/img/myproduct.png" width="100px"></a></li>
                         </div>
-                        <!--
+                        {% for authusers in authusers %}
                         <li>
                             <h>포인트</h>
                             <div style="border: 0.5px solid black; padding: 10px">
-                            {{user.point}}</div>
-                        </li>
-                        -->
+                                {{authusers.mileage}}원</div>
+                        </li>                       
                         <li>
                             <h>사용자아이디</h>
                             <div style="border: 0.5px solid black; padding: 10px">
-                            {{user.username}}</div>
+                            {{authusers.username}}</div>
                         </li>
                         <li>
                             <h>이메일</h>
                             <div style="border: 0.5px solid black; padding: 10px">
-                            {{user.email}}</div>
+                            {{authusers.email}}</div>
                         </li> 
+                        <li>
+                            <h>주소</h>
+                            <div style="border: 0.5px solid black; padding: 10px">
+                            
+                                {{authusers.adress}}</div>  
+                            {% endfor %}
+                        </li>
+                        <li><a href="{% url 'withdraw' %}">출금신청</a></li> 
+                        <li><a href="{% url 'my_withdraw' %}">출금신청내역</a></li> 
+                        <li><a href="{% url 'change_persnal' %}">개인정보수정하기</a></li> 
                         <li><a href="{% url 'restrictiondetailsofuse' %}">이용제한내역</a></li>
                         <li><a href="{% url 'my_contact'%}">문의내역</a></li>  
                         <li><a href="{% url 'contact' %}">문의하기</a></li>  
+                        <li><a href="{% url 'changepassword' %}">비밀번호 변경하기</a></li>  
                         <li><a href="{% url 'login' %}">로그아웃</a></li>
 
                         <!--

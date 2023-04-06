@@ -1,29 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>결제 승인</title>
-</head>
-<body>
-    {% block content %}
-    <div class="mt-5 pt-5 row justify-content-center">
-    <h2 class="text-center my-5 col-12">결제 완료</h2>
-    <div class="col-4 p-5 bg-light">
-        <h3 class="text-center my-5">주문자 정보</h3>
-        <div>
-            <div class="my-3 row"><div class="h5 col-6">주문번호</div><div class="h6 col-6 text-right">{{ res.partner_order_id }}</div></div>
-            <div class="my-3 row"><div class="h5 col-6">상품명</div><div class="h6 col-6 text-right">{{ res.item_name }}</div></div>
-            <div class="my-3 row"><div class="h5 col-6">결제금액</div><div class="h6 col-6 text-right">{{ amount }}원</div></div>
-            <div class="my-3 row"><div class="h5 col-6">결제승인시각</div><div class="h6 col-6 text-right">{{ res.approved_at }}</div></div>
-        </div>
-        <div class="mt-5 pt-3 text-center">
-            <a href="#" class="btn btn-warning">메인으로 돌아가기</a>
-        </div>
-    </div>
-    </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>결제 승인</title>
+    </head>
+    <body>
+        <header class="regist" style="text-align: center; float: center;">
+            {% block content %}
+            <div class="mt-5 pt-5 row justify-content-center">
+                <h2 class="text-center my-5 col-12" style="font-size: 50px;">결제 완료</h2>
+                <hr style="border: solid 2px black; width: 250px; margin-top: -30px;">
+                <div class="col-4 p-5 bg-light">
+                    <h3 class="text-center my-5">상품정보</h3>
+                    <div>
+                        <div class="my-3 row" style="display: flex; text-align: center; justify-content: center;">
+                            <div class="h5 col-6" style="font-size: 20px; text-align: center;">배송주소 :  </div>
+                            <div class="h6 col-6 text-right" style="font-size: 20px; text-align: center;">{{ authusers.adress }}</div>
+                        </div><br>
+                        
+                        <div class="my-3 row" style="display: flex; text-align: center; justify-content: center;">
+                            <div class="h5 col-6" style="font-size: 20px; text-align: center;">상품명 :  </div>
+                            <div class="h6 col-6 text-right" style="font-size: 20px; text-align: center;">{{ res.item_name }}</div>
+                        </div><br>
 
-{% endblock %}
-</body>
+                        <div class="my-3 row" style="display: flex; text-align: center; justify-content: center;">
+                            <div class="h5 col-6" style="font-size: 20px; text-align: center;">결제금액 :  </div>
+                            <div class="h6 col-6 text-right" style="font-size: 20px; text-align: center;">{{ amount }}원</div>
+                        </div><br>
+                        
+                        <div class="my-3 row" style="display: flex; text-align: center; justify-content: center;">
+                            <div class="h5 col-6" style="font-size: 20px; text-align: center;">결제승인시각 :  </div>
+                            <div class="h6 col-6 text-right" style="font-size: 20px; text-align: center;">{{ res.approved_at }}{{res.adress}}</div>
+                        </div><br>
+                    </div>
+                    <div class="mt-5 pt-3 text-center">
+                        <a style="text-align: center; border: 1px solid black; background-color: #efefef; padding: 8px; width: 180px; margin: auto;" href="{% url 'what_i_borrowed' %}" class="btn btn-warning">완료</a>
+                    </div>
+                </div>
+            </div>
+            {% endblock %}
+        </header>
+    </body>
 </html>

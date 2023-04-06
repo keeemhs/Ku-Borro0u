@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include './all.html' %}
+        <title>borr0u - edit_article</title>
+    </head>
+    <body id="page-top">
+        {% include './navigation.html' %}
+        <!-- Login Section -->
+        <body>
+            <header class="regist">
+                <h2>상품정보수정</h2>
+                <ul>
+                    <form method="POST" action="{%url 'edit_myarticle' article.ident %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <li>
+                            <input required id="title" type="text" placeholder="상품이름" name="title" required/>
+                        </li>
+                        <li>
+                            <select name="categorie" required>
+                                <option value="none">카테고리</option>
+                                <option value="close">의류</option>
+                                <option value="kitchen">주방</option>
+                                <option value="homeappliance">가전</option>
+                                <option value="electro">전자기기</option>
+                                <option value="book">책</option>
+                                <option value="etc">기타</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label class="file-label" for="chooseFile">사진첨부</label>
+                            <input style="float: left;" class="file" id="productpicture" type="file" onchange="dropFile.handleFile(this.file)" accept="image/png, image/jpeg, image.gif" >
+                        </li>
+                        <li>
+                            <input required id="notice" type="text" placeholder="유의사항" name="notice" style="height: 200px;" required/>
+                        </li>
+                        <li>
+                            <input required id="price" type="text" placeholder="가격" name="price" required/>
+                        </li>
+                        <div style="display: flex;">
+                            <li style="margin-right: 30px;">
+                                <input style="width: 170px;" required id="regist_date" type="date" placeholder="등록날짜" name="regist_date" required/>
+                            </li>
+                            <li style="margin-right: 30px;">
+                                <h>  ~  </h>
+                            </li>
+                            <li>
+                                <input style="width: 170px;" required id="exp_date" type="date" placeholder="만료날짜" name="exp_date" required/>
+                            </li>
+                        </div>
+                        <li>
+                            <input type="submit" class="btn btn-primary" value="등록하기"/>
+                        </li>
+                    </form>
+                </ul>
+            </header>
+        </body>
+    </body>
+</html>

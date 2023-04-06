@@ -7,16 +7,34 @@
     <body id="page-top">
         {% include './navigation.html' %}
         <!-- Login Section -->
-        <body>
-            <header class="sign-in">
+        <body style="padding-top: 75px;">
+            <header class="sign-in" style="padding-top: 150px; top:50%">
                 <h2>회원가입</h2>
                 <ul>
                     <!-- <form id="sign-in"> -->
                     <form method="POST" action="{%url 'sign_up'%}">
                     {% csrf_token %}
                         <li>
-                            <input required id="email" type="text" placeholder="학교이메일 인증" name="email"/>
-                            <input type="button" value="인증"/>
+                            <div style="display: flex; flex-direction:row">
+                                <input required id="email" type="text" placeholder="학교이메일 인증" name="email"/>
+                                <div style="font-size: 25px; padding: 0;">@kku.ac.kr</div>
+                            </div>
+                            <input type="button" value="중복확인" onclick="validate_email()" />
+                        </li>
+                        <li>
+                            <input type="button" value="인증번호 전송하기" onclick="check_email()" />
+                        </li>
+                        <li>
+                            <input required id="numbers" type="number" placeholder="인증번호 입력" name="numbers"/>
+                        </li>
+                        <li>
+                            <input type="button" value="인증번호 확인" onclick="confirm_email_number()" />
+                        </li>
+                        <li>
+                            <span id="email-check-done" style="display: none;">이메일 인증이 완료되었습니다.</span>
+                        </li>
+                        <li>
+                            <span id="email-check-fail" style="display: none;">인증번호가 올바르지 않습니다.</span>
                         </li>
                         <li>
                             <input required id="major" type="text" placeholder="학 과" name="major"/>
@@ -33,26 +51,91 @@
                         <li>
                             <input required id="name" type="text" placeholder="이 름" name="name"/>
                         </li>
-                        <!-- <li>
-                            <input required id="nickname" type="text" placeholder="닉네임" name="nickname"/>
-                        </li> -->
+                        <li>
+                            <input required id="adress" type="text" placeholder="물건이 배송될 주소" name="adress"/>
+                        </li>
                         <li>
                             <input required id="phone" type="text" placeholder="연락처" name="phone"/>
                         </li>
                         <li>
-                            <input required id="password" type="password" placeholder="비밀번호" minlength="1" maxlength="300" name="password"/>
-                            <div id="passwordError" class="error"></div>
+                            <input required id="password" type="password" placeholder="비밀번호" minlength="10" maxlength="14" name="password"/>
                         </li>
                         <li>
-                            <input required id="passwordcheck" type="password" placeholder="비밀번호 확인" minlength="1" maxlength="300" name="passwordcheck"/>
-                            <div id="passwordCheckError" class="error"></div>
+                            <input required id="passwordcheck" type="password" placeholder="비밀번호 확인" minlength="10" maxlength="14" name="passwordcheck"/>
                         </li>
                         <li>
-                            <input type="submit" class="btn btn-primary" value="회원가입" />
+                            <span class="btn btn-primary" id="submitbtn" style="
+                            background-color: gray;
+                            width: 100%;
+                            height: 46px;
+                            box-sizing: border-box;
+                            text-indent: 16px;" 
+                            onclick="submit()">회원가입</span>
                         </li>
+                        <input type="submit" class="btn btn-primary" id="real-submit" style="display: none;" value="회원가입" />
                         
                     </form>
                 </ul>
             </header>
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+            <script type="text/javascript">
+                var numbers = ""
+                function check_email() {
+                    let email_str = document.getElementById("email")?.value;
+                    console.log("eamil >>", email_str)
+                    $.ajax({
+                        url: "{% url 'email_check' email_str=0 %}".replace('0',email_str),
+                        type:'POST',
+                        data:{csrfmiddlewaretoken: '{{ csrf_token }}'},
+                        success:function(response){
+                            alert("인증번호가 전송되었습니다.")
+                            numbers = response.numbers
+                            console.log("numbers >>", numbers)
+                        },
+                        error:function(response){
+                            alert("post 실패", response) 
+                        }
+                    });
+                }
+
+                function validate_email() {
+                    let email_str = document.getElementById("email")?.value;
+                    $.ajax({
+                        url: "{% url 'validate_email' email_str=0 %}".replace('0',email_str),
+                        type:'POST',
+                        data:{csrfmiddlewaretoken: '{{ csrf_token }}'},
+                        success:function(response){
+                            alert(response.res)
+                        },
+                        error:function(response){
+                            alert("post 실패", response) 
+                        }
+                    });
+                }
+
+                function confirm_email_number() {
+                    let check_numbers = document.getElementById("numbers")?.value;
+                    if (numbers == check_numbers) {
+                        document.getElementById("email-check-fail").style.display = 'none';
+                        document.getElementById("email-check-done").style.display = 'block';
+                        document.getElementById("submitbtn").style.backgroundColor = '#16a085';
+                        document.getElementById("submitbtn").style.cursor='pointer';
+                    } else {
+                        document.getElementById("email-check-fail").style.display = 'block';
+                        document.getElementById("email-check-done").style.display = 'none';
+                    }
+                }
+                function submit() {
+                    console.log("submit")
+                    var pw = document.getElementById("password").value;
+                    var pwcheck = document.getElementById("passwordcheck").value;
+                    if (pw != pwcheck) {
+                        alert("비밀번호가 일치하지 않습니다.")
+                    } else {
+                        document.getElementById("real-submit").click();
+                    }
+                }
+
+            </script>
         </body>
 </html>

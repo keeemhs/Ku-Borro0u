@@ -7,20 +7,26 @@
     <body id="page-top">
         {% include './navigation.html' %}
         <!-- Login Section -->
-        <body>
-            <h2>{{ contacts.username }}님의 문의내역</h2>
-            <h2>{{ contact.username }}님의 문의내역</h2>
+        <body style="padding-top: 170px;">
             <header class="regist">
-                <h2>{{ contacts.username }}님의 문의내역</h2>
-                <h2>{{ contact.username }}님의 문의내역</h2>
-                {% for contacts in contacts%}
+                <h2>{{ result.username }}님의 문의내역</h2>
+                {% for contact in result.contacts %}
                 <!-- <h2>{{ contacts.username }}님의 문의내역</h2> -->
-                <ul>
-
-                    {{ contacts.title }} <br><br>
-                    {{ contacts.content }}
-                
-
+                <ul style="margin-bottom: -50px;">
+                    <div style="display: flex; text-align: center; justify-content: center; margin-bottom: -70px;">
+                        <div style="font-size: 20px; text-align: left;">제목 : </div>
+                        <div style="font-size: 20px; text-align: center;">{{ contact.title }}</div><br>
+                    </div>
+                    <div style="display: flex; text-align: center; justify-content: center; margin-bottom: -70px;">
+                        <div style="font-size: 20px; text-align: left;">문의내용 : </div>
+                        <div style="font-size: 20px; text-align: center;">{{ contact.content }}</div><br>
+                    </div>
+                    <div style="display: flex; text-align: center; justify-content: center; margin-bottom: -60px;">
+                        <div style="font-size: 20px; text-align: left; margin-bottom: -40px;">작성날짜 : </div>
+                        <div style="font-size: 20px; text-align: center;">{{ contact.date }}</div><br>
+                    </div>
+                    <!--<div style="border: 1px solid black; padding: 10px; text-align: left;">{{ today }}</div>-->
+                    <hr style="border: solid 2px black;">
                 </ul>
                 {%endfor%}
             </header>

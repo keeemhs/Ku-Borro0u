@@ -55,7 +55,10 @@
                     </p>
                 </div>
                 <div style="margin: auto; text-align: center;">
-                    <input type="button" style="height: 50px; width: 150px; font-size: 30px; background-color: white;" value="편집" onClick=""> 
+                    <!-- <input type="button" style="height: 50px; width: 150px; font-size: 30px; background-color: white;" value="편집" onClick="location.href='{% url 'edit_myarticle' articles.ident%}'">  -->
+                    {% if articles.being_rented == 'x' %}
+                    <a style="font-size: 30px; border: 2px solid black; padding: 10px; height: 50px; width: 150px;" href="{% url 'edit_myarticle' articles.ident%}">편집</a>
+                    {% endif %}
                     <input type="button" style="height: 50px; width: 150px; font-size: 30px; background-color: white;" value="나가기" onClick="history.go(-1)"> 
                 </div>
             </section>
